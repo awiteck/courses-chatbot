@@ -19,10 +19,7 @@ class PineconeManager:
         self._ensure_index_exists()
 
     def _ensure_index_exists(self):
-        print("_ensure_index_exists")
         existing_indexes = self.pc.list_indexes()
-        print(existing_indexes)
-        print("----")
         index_names = [index["name"] for index in existing_indexes]
         # Check if the index exists, and if not, create it
         if self.index_name not in index_names:
@@ -44,7 +41,7 @@ class PineconeManager:
         # Connect to the index
         index = self.pc.Index(self.index_name)
         # Query the index
-        return index.query(vector, top_k=top_k)
+        return index.query(vector=vector, top_k=top_k, include_metadata=True)
 
 
 # Example usage of the PineconeManager class, typically you would use it in your main.py or another script

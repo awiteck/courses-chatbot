@@ -13,5 +13,8 @@ PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME")
 VECTOR_MODEL_NAME = "all-MiniLM-L6-v2"
 VECTOR_DIMENSION = 384
 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_MODEL = "gpt-3.5-turbo"
+
 # Other Settings
 DEBUG = os.getenv("DEBUG", "False").lower() in ["true", "1", "t"]

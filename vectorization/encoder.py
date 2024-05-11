@@ -4,6 +4,10 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
+def vectorize_string(s):
+    return model.encode(s)
+
+
 def vectorize_descriptions(descriptions):
     """
     Encodes a dictionary of course descriptions into vectors.
