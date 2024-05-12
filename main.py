@@ -5,6 +5,7 @@ from chatbot.chatbot import (
     generate_hypothetical_description,
     get_related_courses,
     summarize_related_courses,
+    chatbot,
 )
 
 # from database.pinecone_manager import PineconeManager
@@ -16,7 +17,9 @@ from data_collection.courses_scraper import (
 
 
 def chatbot_test():
-    student_input = "I'm a STEM major, but I'm super into music and I want to take an electronic music class that doesn't shy away from the more technical aspects of production and composition. I'm also interested in cults throughout history."
+    # student_input = "I'm a STEM major, but I'm super into music and I want to take an electronic music class that doesn't shy away from the more technical aspects of production and composition. I'm also interested in cults throughout history."
+    # student_input = "I'm a STEM major, but I'm super into music and I want to take a 300-level electronic music class that doesn't shy away from the more technical aspects of production and composition. I've already taken MUS205 and MUS216 so don't suggest those please."
+    student_input = "I want to take an easy seminar class next semester. What suggestions do you have?"
     description = generate_hypothetical_description(student_input)
     print(f"Description: {description}")
     print("Getting related courses...")
@@ -86,4 +89,5 @@ async def main():
 
 if __name__ == "__main__":
     # asyncio.run(main())
-    chatbot_test()
+    asyncio.run(chatbot())
+    # chatbot_test()
